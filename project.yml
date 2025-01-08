@@ -1,7 +1,8 @@
 environment:
-  API_KEY: ${API_KEY}
+  CUSTOM_SEARCH_API_KEY: ${CUSTOM_SEARCH_API_KEY}
+  CUSTOM_SEARCH_CX: ${CUSTOM_SEARCH_CX}
 packages:
   - name: sample
     actions:
-      - name: emails
-        runtime: 'python:default'
+      - name: seo
+        runtime: "python:default"

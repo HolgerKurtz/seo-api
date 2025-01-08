@@ -1,4 +1,4 @@
-# 
+#
 
 ## Introduction
 
@@ -7,39 +7,34 @@ Documentation is available at https://docs.digitalocean.com/products/functions.
 
 ### Requirements
 
-* You need a DigitalOcean account. If you don't already have one, you can sign up at [https://cloud.digitalocean.com/registrations/new](https://cloud.digitalocean.com/registrations/new).
-* You need a SendGrid account. If you don't already have one, you can sign up at https://signup.sendgrid.com/.
-* You need to create a SendGrid API key with Full Access to connect to your sendgrid account. You can learn more about it at https://docs.sendgrid.com/ui/account-and-settings/api-keys.
-* You need to add your `API_KEY` to the `.env` file to connect to the SendGrid API.
-* To send emails with valid email addresses, you have to set up sender authentication. You can learn more at https://docs.sendgrid.com/glossary/sender-authentication.
-* To send emails to email address with DMARCS, you have to set up domain authentication. You can learn more at https://docs.sendgrid.com/ui/account-and-settings/how-to-set-up-domain-authentication.
-* To deploy from the command line, you will need the [DigitalOcean `doctl` CLI](https://github.com/digitalocean/doctl/releases).
-
+- You need a DigitalOcean account. If you don't already have one, you can sign up at [https://cloud.digitalocean.com/registrations/new](https://cloud.digitalocean.com/registrations/new).
+- You need a SendGrid account. If you don't already have one, you can sign up at https://signup.sendgrid.com/.
+- You need to create a SendGrid API key with Full Access to connect to your sendgrid account. You can learn more about it at https://docs.sendgrid.com/ui/account-and-settings/api-keys.
+- You need to add your `API_KEY` to the `.env` file to connect to the SendGrid API.
+- To send emails with valid email addresses, you have to set up sender authentication. You can learn more at https://docs.sendgrid.com/glossary/sender-authentication.
+- To send emails to email address with DMARCS, you have to set up domain authentication. You can learn more at https://docs.sendgrid.com/ui/account-and-settings/how-to-set-up-domain-authentication.
+- To deploy from the command line, you will need the [DigitalOcean `doctl` CLI](https://github.com/digitalocean/doctl/releases).
 
 ## Deploying the Function
 
 ```bash
-# clone this repo
-git clone git@github.com:HolgerKurtz/seo-api.git
-```
-
-```
 # deploy the project, using a remote build so that compiled executable matched runtime environment
 > doctl serverless deploy seo-api --remote-build
 Deploying 'sample-functions-python-sendgrid-email'
   to namespace 'fn-...'
   on host 'https://faas-...'
-Submitted action 'emails' for remote building and deployment in runtime python:default (id: ...)
+Submitted action 'seo' for remote building and deployment in runtime python:default (id: ...)
 
 Deployed functions ('doctl sls fn get <funcName> --url' for URL):
-  - sample/emails
+  - sample/seo
 ```
 
 ## Using the Function
 
 ```bash
-doctl serverless functions invoke sample/emails -p from:user@do.com to:user@gmail.com subject:Sammy content:Good Morning from Sammy.
+doctl serverless functions invoke sample/seo -p from:user@do.com to:user@gmail.com subject:Sammy content:Good Morning from Sammy.
 ```
+
 ```json
 {
   "body": "email sent"
@@ -47,8 +42,9 @@ doctl serverless functions invoke sample/emails -p from:user@do.com to:user@gmai
 ```
 
 ### To send an email using curl:
+
 ```
-curl -X PUT -H 'Content-Type: application/json' {your-DO-app-url} -d '{"from":"user@do.com", "to":"user@gmail.com", "subject": "Sammy", "content":"Good Morning from Sammy!"}' 
+curl -X PUT -H 'Content-Type: application/json' {your-DO-app-url} -d '{"from":"user@do.com", "to":"user@gmail.com", "subject": "Sammy", "content":"Good Morning from Sammy!"}'
 ```
 
 ### Learn More
