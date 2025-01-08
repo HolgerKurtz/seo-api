@@ -1,4 +1,4 @@
-# Sample Function: Python "Sendgrid Emails"
+# 
 
 ## Introduction
 
@@ -20,12 +20,12 @@ Documentation is available at https://docs.digitalocean.com/products/functions.
 
 ```bash
 # clone this repo
-git clone git@github.com:digitalocean/sample-functions-python-sendgrid-email.git
+git clone git@github.com:HolgerKurtz/seo-api.git
 ```
 
 ```
 # deploy the project, using a remote build so that compiled executable matched runtime environment
-> doctl serverless deploy sample-functions-python-sendgrid-email --remote-build
+> doctl serverless deploy seo-api --remote-build
 Deploying 'sample-functions-python-sendgrid-email'
   to namespace 'fn-...'
   on host 'https://faas-...'
