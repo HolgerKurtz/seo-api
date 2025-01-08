@@ -5,4 +5,4 @@ packages:
   - name: sample
     actions:
       - name: seo
-        runtime: "python:default"
+        runtime: "python:3.11"
